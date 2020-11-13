@@ -1,0 +1,37 @@
+installed.packages("cairo")
+installed.packages("visualize")
+library(cairo)
+library(visualize)
+set.seed(9)
+x <- rf(300,3,112)
+e <- rnorm(300,0,14)
+y <- 5+3*x+e
+layout(matrix(c(2,1,1,2,1,1,0,3,3),3,3, byrow = T))
+plot (x,y)
+boxplot(x)
+boxplot(y,horizontal =T)
+dev.copy(tiff, filename = "plot-ex5.png")#5 упражнение
+dev.off()
+
+layout(matrix(2:1,1 , 2, byrow = T))
+hist(x, col="peachpuff", border="black", prob = TRUE, xlab="x",ylab ="Density", main = "histogram of x", ylim=c(0,0.8))
+lines(density(x), col="red", lwd =2)
+curve(df(x,3, 112), col = "blue",lwd = 2, add = T)
+hist(e, col="peachpuff", border="black", prob = TRUE, xlab="x", ylab ="Density", main = "histogram of e")
+lines(density(e), col="red", lwd =2)
+curve(dnorm(e,mean = mean (e), sd = sd(e)), col = "blue",lwd = 2, add = T, xname = "e") # 6 упражнение
+layout(matrix(1:1,1 , 1, byrow = T))
+c2005 <- c(15806.5, 7077.1, 3026.1)
+c2010 <- c(28300.9, 10097.4, 13556.5)
+c2013 <- c(50236.5, 16401.8, 19329.2)
+c2017 <- c(61885.8, 9761.8, 32808.0)
+mat <- cbind("2005"=c2005,"2010"= c2010, "2013"=c2013, "2017"=c2017)
+mat
+barplot(mat,  col=terrain.colors(3), ylim=c(0,120000),
+        xlab = "годы") 
+mtext("Республика Саха", side = 2,line =2, cex = 2, font=2)
+mtext('социально-культурные мероприятия',side = 3,line =1.5, cex = 1.5, font=3)
+legend("topleft",
+       c("образование","здравохранение","соц.политика"), fill=terrain.colors(3), horiz=F)
+dev.off()
+

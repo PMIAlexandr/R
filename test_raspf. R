@@ -1,7 +1,7 @@
-raspf<-function(r,e)
+raspf<-function(x,y,e)
 {
   layout(matrix(c(2,1,1,2,1,1,0,3,3),3,3, byrow = T))
-  plot (r,e)
-  boxplot(r)
+  plot (x,y)
+  boxplot(x)
   boxplot(e,horizontal =T)
 }

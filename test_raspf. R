@@ -1,7 +1,18 @@
-raspf<-function(x,y,e)
-{
-  layout(matrix(c(2,1,1,2,1,1,0,3,3),3,3, byrow = T))
-  plot (x,y)
-  boxplot(x)
-  boxplot(e,horizontal =T)
-}
+installed.packages("cairo")
+installed.packages("visualize")
+library(cairo)
+library(visualize)
+Func_test <- function(n,rf, rn)
+  {
+source(fileURL)
+set.seed(9)
+x <- rf(n,rf[1],rf[2])
+e <- rnorm(n,rn[1],rn[2])
+y <- 5+3*x+e
+layout(matrix(c(2,1,1,2,1,1,0,3,3),3,3, byrow = T))
+plot (x,y)
+boxplot(x)
+boxplot(e,horizontal =T)
+dev.copy(tiff, filename = "plot-ex8.png")#5 упражнение
+dev.off()
+  }

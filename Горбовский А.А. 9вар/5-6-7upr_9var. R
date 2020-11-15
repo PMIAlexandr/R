@@ -10,16 +10,17 @@ layout(matrix(c(2,1,1,2,1,1,0,3,3),3,3, byrow = T))
 plot (x,y)
 boxplot(x)
 boxplot(y,horizontal =T)
-dev.copy(tiff, filename = "plot-ex5.png")#5 упражнение
-dev.off()
+dev.copy(tiff, filename = "plot-ex5.png")# сохранение графика, как картинку
+dev.off() #5 упражнение
 
 layout(matrix(2:1,1 , 2, byrow = T))
-hist(x, col="peachpuff", border="black", prob = TRUE, xlab="x",ylab ="Density", main = "histogram of x", ylim=c(0,0.8))
-lines(density(x), col="red", lwd =2)
+hist(x, col="peachpuff", border="black", prob = TRUE, xlab="x",ylab ="Density", main = "histogram of x", ylim=c(0,0.8)) #histogram of x
+lines(density(x), col="red", lwd =2) # цвет и толщина линии
 curve(df(x,3, 112), col = "blue",lwd = 2, add = T)
-hist(e, col="peachpuff", border="black", prob = TRUE, xlab="x", ylab ="Density", main = "histogram of e")
-lines(density(e), col="red", lwd =2)
+hist(e, col="peachpuff", border="black", prob = TRUE, xlab="x", ylab ="Density", main = "histogram of e") #histogram of e
+lines(density(e), col="red", lwd =2) # цвет и толщина линии
 curve(dnorm(e,mean = mean (e), sd = sd(e)), col = "blue",lwd = 2, add = T, xname = "e") # 6 упражнение
+
 layout(matrix(1:1,1 , 1, byrow = T))
 c2005 <- c(15806.5, 7077.1, 3026.1)
 c2010 <- c(28300.9, 10097.4, 13556.5)
@@ -32,6 +33,6 @@ barplot(mat,  col=terrain.colors(3), ylim=c(0,120000),
 mtext("Республика Саха", side = 2,line =2, cex = 2, font=2)
 mtext('социально-культурные мероприятия',side = 3,line =1.5, cex = 1.5, font=3)
 legend("topleft",
-       c("образование","здравохранение","соц.политика"), fill=terrain.colors(3), horiz=F)
+       c("образование","здравохранение","соц.политика"), fill=terrain.colors(3), horiz=F) #7 упражнение
 dev.off()
 

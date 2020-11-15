@@ -1,4 +1,4 @@
-installed.packages("cairo")
+installed.packages("Cairo")
 installed.packages("visualize")
 library(cairo)
 library(visualize)
@@ -19,7 +19,9 @@ lines(density(x), col="red", lwd =2) # цвет и толщина линии
 curve(df(x,3, 112), col = "blue",lwd = 2, add = T)
 hist(e, col="peachpuff", border="black", prob = TRUE, xlab="x", ylab ="Density", main = "histogram of e") #histogram of e
 lines(density(e), col="red", lwd =2) # цвет и толщина линии
-curve(dnorm(e,mean = mean (e), sd = sd(e)), col = "blue",lwd = 2, add = T, xname = "e") # 6 упражнение
+curve(dnorm(e,mean = mean (e), sd = sd(e)), col = "blue",lwd = 2, add = T, xname = "e")
+dev.copy(tiff, filename = "plot-ex6.png")# сохранение графика, как картинку
+dev.off() # 6 упражнение
 
 layout(matrix(1:1,1 , 1, byrow = T))
 c2005 <- c(15806.5, 7077.1, 3026.1)
@@ -33,6 +35,7 @@ barplot(mat,  col=terrain.colors(3), ylim=c(0,120000),
 mtext("Республика Саха", side = 2,line =2, cex = 2, font=2)
 mtext('социально-культурные мероприятия',side = 3,line =1.5, cex = 1.5, font=3)
 legend("topleft",
-       c("образование","здравохранение","соц.политика"), fill=terrain.colors(3), horiz=F) #7 упражнение
-dev.off()
+       c("образование","здравохранение","соц.политика"), fill=terrain.colors(3), horiz=F)
+       dev.copy(tiff, filename = "plot-ex6.png")# сохранение графика, как картинку
+dev.off() # 7 упражнение
 

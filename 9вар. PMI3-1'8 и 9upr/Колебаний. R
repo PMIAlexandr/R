@@ -19,13 +19,13 @@ oscillation <- function(rf_1,rf_2,rn_1,rn_2) #функция
   dev.copy(tiff, filename = "plot-ex9.png")# сохранение графика, как картинку
   dev.off() # 9 упражнение
   max(x) # максимальное x
-  min(x) # минимальное X
+  min(x) # минимальное x
   R <- (max(x)-min(x)) #размах вариации
   mean(x) # среднее x
   Vx <- R/mean(x)*100 # коэффициент осцилляции 
   Vx
-  max(y) # максимальное Y
-  min(y) # минимальное X
+  max(y) # максимальное y
+  min(y) # минимальное y
   R <- (max(y)-min(y)) #размах вариации
   mean(y) # среднее y
   Vy <- R/mean(y)*100 # коэффициент осцилляции 

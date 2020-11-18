@@ -1,0 +1,16 @@
+library(Cairo)# аргументы rf_1 и rf_2 - это степени свободы df1 и df2. rn_1 - среднее, и rn_2 - стандартное отклонение
+raspf <- function(rf_1,rf_2,rn_1,rn_2) #функция
+  {
+set.seed(9)
+  n <- 300 #число наблюдений
+  x <- rf(n,rf_1,rf_2) #распределение Фишера
+  e <- rnorm(n,rn_1,rn_2) #нормальное распределение
+  y <- 5 + 3*x + e
+layout(matrix(c(2,1,1,2,1,1,0,3,3),3,3, byrow = T))
+plot(x,y)
+boxplot(x)
+boxplot(e,horizontal = T)
+dev.copy(tiff, filename = "plot-ex8.png") #сохранение графика, как картинку
+dev.off()
+  }
+

@@ -1,4 +1,4 @@
-library(Cairo)
+library(Cairo) # аргументы rf_1 и rf_2 - это степени свободы df1 и df2. rn_1 - среднее, и rn_2 - стандартное отклонение
 raspf <- function(rf_1,rf_2,rn_1,rn_2) #функция
   {
 set.seed(9)
